@@ -1,0 +1,182 @@
+!**************************************************************************************************
+&NML_YNEVDatadir !    the directory of YNEV data
+!**************************************************************************************************
+      
+      cYNEVDatadirection='D:/ynev/ynev_v1063'
+!      cYNEVDatadirection='~/software/ynev/ynev_v1063'
+      
+!**************************************************************************************************
+/
+!**************************************************************************************************
+      
+      
+      
+!**************************************************************************************************
+&NML_YNEV !  variables control the running of ynev
+!**************************************************************************************************
+      
+!  setup namelist variables here, reading the file '_setup_default_for_reference.aoe' for reference.
+      
+      iChemcomp=5 ! metal composition, 1 - GN93, 2 - GS98, 3 - AGS09, 4 - Caffau11
+      
+      iEndCoreHburn=1
+      
+      nwrmodmax=2000
+      
+      inwrmod=20 ! save model file very inwrmod model
+      
+      dgridscontrol=0.5d0
+    !  facst=0.4d0
+    !  facst_PMS_enhance=3d0 ! facst mutiples this value temporarily
+      
+      dgridscontrol=0.5d0
+      facst=0.5d0
+      facst_PMS_enhance=2d0 ! facst mutiples this value temporarily
+      
+      iMicroDiff=1 ! micro diffusion, =0 - inactive, =1 - active.
+      
+      cDIFelement( 1)='H1'
+    !  cDIFelement( 2)='H2' ! attention: can not trace H2 in micro-diffusion
+    !  cDIFelement( 3)='He3'
+      cDIFelement( 4)='He4'
+    !  cDIFelement( 5)='Li7' ! attention: can not trace Li in micro-diffusion
+      cDIFelement( 6)='C12'
+    !  cDIFelement( 7)='C13'
+      cDIFelement( 8)='N14'
+    !  cDIFelement( 9)='N15'
+      cDIFelement(10)='O16'
+    !  cDIFelement(11)='O17'
+    !  cDIFelement(12)='Be7' ! attention: can not trace Be in micro-diffusion
+      cDIFelement(13)='Ne20'
+                             
+      iScrType_DIF=1 ! =0, resistance coefficient dased on Thoul, Bahcall & Loeb, 1994, ApJ, 421, 828
+                     ! =1, resistance coefficient dased on Zhang, 2017, ApJ, 834, 132
+                     
+      ! iDIF_EnvelopeMix=1 ! =1, ensure fully mixing in the envelope where lgT<Tlg_DIF_EnvelopeMix
+                         ! works only if iMicroDiff=1
+      ! Tlg_DIF_EnvelopeMix=5.9d0 ! 
+      
+      i_use_YNOSC=1 ! 1 - calculate OSC for every 'i_use_YNOSC_model_step' converged stellar model, 0 - do not calculate stellar OSC
+      i_use_YNOSC_model_step=1 ! model step
+      
+      parascan=201*0.5d0
+      
+      lst=0
+      lfi=2
+      
+      dxc0osc =1d-2
+      xc_min_fin=1d-2
+      xcminosc=1d-2
+      
+      tauEDTBoundary=1d-5
+      
+! scan from f1 to f2 (in uHz)
+      
+    !  f1 is determined by the maximum frequency of the following setting
+      
+      ifixed_fre_low=0 ! =1 active, =0, not active
+      f1fix=201*1000d0
+      
+      ifre_to_df_low=1
+      f1todf=201*2d0
+      
+      iprd_to_dp_low=0
+      p1todp=201*1d0
+      
+      ifretofmax_low=1
+      facfmax1=201*15d0
+      
+    !  f2 is determined by the minimum frequency of the following setting
+      
+      ifixed_fre_high=0 ! =1 active, =0, not active
+      f2fix=201*2000d0
+      
+      ifre_to_df_high=0
+      f2todf=201*1d0
+      
+      iprd_to_dp_high=0
+      p2todp=201*1d0
+      
+      ifretofmax_high=1
+      facfmax2=201*15d0
+      
+      isystemcmdtot=3
+      cendsystemcmd(1)='copy /b AoEFre*.txt FreAll.txt'
+      cendsystemcmd(2)='del mod*.txt'
+      cendsystemcmd(3)='del AoEFre*.txt'
+      
+     
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+!**************************************************************************************************
+/ 
+!**************************************************************************************************
